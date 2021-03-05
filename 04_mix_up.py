@@ -13,8 +13,14 @@ Assuma que a e b tem tamanho 2 ou maior.
 """
 
 def mix_up(a, b):
-    new_a = b[0:2] + a[2:]
-    new_b = a[0:2] + b[2:]
+    t = 1
+
+    if len(a) > 2 and len(b) > 2:
+        t = 2
+
+    new_a = b[0:t] + a[t:]
+    new_b = a[0:t] + b[t:]
+
     return ' '.join([new_a, new_b])
 
 
@@ -43,3 +49,4 @@ if __name__ == '__main__':
     test(mix_up, ('dog', 'dinner'), 'dig donner')
     test(mix_up, ('gnash', 'sport'), 'spash gnort')
     test(mix_up, ('pezzy', 'firm'), 'fizzy perm')
+    test(mix_up,('xy', 'ab'), 'ay xb')
