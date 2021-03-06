@@ -12,13 +12,10 @@ Retorne o resultado da string.
 
 def verbing(s):
     new_string = s
-    if len(s) >= 3:
-        final_string = s[len(s)-3:]
-
-        if final_string == 'ing':
-            new_string = s + 'ly'
-        else:
-            new_string = s + 'ing'
+    if len(s) >= 3 and s[len(s)-3:] == 'ing':
+        new_string = s + 'ly'
+    elif len(s) >= 3 and s[len(s)-3:] != 'ing':
+        new_string = s + 'ing'
 
     return new_string
 
