@@ -16,23 +16,13 @@ def front_back(a, b):
     size_a, rest_a = divmod(len(a), 2)
     size_b, rest_b = divmod(len(b), 2)
 
-    first_string_a = a[0:size_a]
-    last_string_a = a[size_a:]
+    first_string_a = a[0:size_a + rest_a] if rest_a > 0 else a[0:size_a]
+    last_string_a = a[size_a + rest_a:] if rest_a > 0 else a[size_a:]
 
-    first_string_b = b[0:size_b]
-    last_string_b = b[size_b:]
+    first_string_b = b[0:size_b + rest_b] if rest_b > 0 else b[0:size_b]
+    last_string_b = b[size_b + rest_b:] if rest_b > 0 else b[size_b:]
 
-    if rest_a > 0:
-        first_string_a = a[0:size_a + rest_a]
-        last_string_a = a[size_a + rest_a:]
-
-    if rest_b > 0:
-        first_string_b = b[0:size_b + rest_b]
-        last_string_b = b[size_b + rest_b:]
-
-    final_string = ''.join([first_string_a, first_string_b, last_string_a, last_string_b])
-
-    return final_string
+    return ''.join([first_string_a, first_string_b, last_string_a, last_string_b])
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
