@@ -10,23 +10,25 @@ Exemplo: 'abcde', a metade da frente é 'abc' e a de trás é 'de'.
 Finalmente, dadas duas strings a e b, retorne uma string na forma:
 a-frente + b-frente + a-trás + b-trás
 """
+
+
 def front_back(a, b):
-    tamanho_a, resto_a = divmod(len(a), 2)
-    tamanho_b, resto_b = divmod(len(b), 2)
+    size_a, rest_a = divmod(len(a), 2)
+    size_b, rest_b = divmod(len(b), 2)
 
-    if resto_a == 0:
-        first_string_a = a[0:tamanho_a]
-        last_string_a = a[tamanho_a:]
-    else:
-        first_string_a = a[0:tamanho_a + resto_a]
-        last_string_a = a[tamanho_a + resto_a:]
+    first_string_a = a[0:size_a]
+    last_string_a = a[size_a:]
 
-    if resto_b == 0:
-        first_string_b = b[0:tamanho_b]
-        last_string_b = b[tamanho_b:]
-    else:
-        first_string_b = b[0:tamanho_b + resto_b]
-        last_string_b = b[tamanho_b + resto_b:]
+    first_string_b = b[0:size_b]
+    last_string_b = b[size_b:]
+
+    if rest_a > 0:
+        first_string_a = a[0:size_a + rest_a]
+        last_string_a = a[size_a + rest_a:]
+
+    if rest_b > 0:
+        first_string_b = b[0:size_b + rest_b]
+        last_string_b = b[size_b + rest_b:]
 
     final_string = ''.join([first_string_a, first_string_b, last_string_a, last_string_b])
 
