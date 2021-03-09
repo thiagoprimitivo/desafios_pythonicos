@@ -11,9 +11,15 @@ Dica: Isso pode ser resolvido criando 2 listas e ordenando cada uma
 antes de combina-las.
 """
 
+
 def front_x(words):
-    # +++ SUA SOLUÇÃO +++
-    return
+    list_x = []
+    list_no_x = []
+
+    for word in words:
+        list_x.append(word) if word[0] == 'x' else list_no_x.append(word)
+
+    return sorted(list_x) + sorted(list_no_x)
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
