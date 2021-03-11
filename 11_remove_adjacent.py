@@ -8,9 +8,22 @@ Exemplo: [1, 2, 2, 3]
 Irá retornar: [1, 2, 3]
 """
 
+
 def remove_adjacent(nums):
-    # +++ SUA SOLUÇÃO +++
-    return
+    new_list = []
+
+    for idx, num in enumerate(nums):
+        new_list.append(num)
+
+        if idx - 1 >= 0 and idx + 1 <= len(nums):
+
+            if nums[idx - 1]:
+                if nums[idx - 1] == num:
+                    new_list.reverse()
+                    new_list.remove(num)
+                    new_list.reverse()
+
+    return new_list
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
